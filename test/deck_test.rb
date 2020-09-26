@@ -19,16 +19,17 @@ describe Deck do
 
     it "draws a card and return the card" do
       deck = Deck.new
-      before_length = deck.cards.length
 
       expect(deck.draw).must_be_instance_of Card
-      expect(deck.cards.length).must_equal (before_length - 1)
+
     end
 
     it "the card is gone" do
       deck = Deck.new
+      before_length = deck.cards.length
 
       expect(deck.cards.include?(deck.draw)).must_equal false
+      expect(deck.cards.length).must_equal (before_length - 1)
     end
 
     it "can't draw when no card left" do

@@ -5,12 +5,12 @@ class Card
   attr_reader :value, :suit
 
   def initialize(value, suit)
+    raise ArgumentError.new("Invalid value") if value < 1 || value > 13
+    raise ArgumentError.new("Invalid suit.") if !([:hearts, :spades, :clubs, :diamonds].include?(suit))
+
     @value = value
     @suit = suit
 
-    if @value < 1 || @value > 13 || !([:hearts, :spades, :clubs, :diamonds].include?(@suit))
-      raise ArgumentError.new("Invalid value or suit.")
-    end
   end
 
   def value_to_name
@@ -37,5 +37,3 @@ class Card
 
 end
 
-# game = Card.new(13, :diamonds)
-# p game.to_s

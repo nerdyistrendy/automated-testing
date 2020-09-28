@@ -25,7 +25,6 @@ class Deck
   def shuffle
     puts "Cards shuffled!"
     return @cards.shuffle
-
   end
 
   def count
@@ -33,5 +32,3 @@ class Deck
     return @cards.length
   end
 end
-# deck = Deck.new
-# p deck.cards
